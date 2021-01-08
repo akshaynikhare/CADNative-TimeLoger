@@ -52,6 +52,7 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/TimeLog-manage.php';
 
 	require_once plugin_dir_path( __FILE__ ) . 'admin/User-Setup.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/User-Time-Log.php';
 	
 }
 
