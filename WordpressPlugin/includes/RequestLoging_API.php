@@ -11,11 +11,10 @@
 
         $tblname = 'timeloger47';
         $tablename=$table_prefix . "$tblname";
-
         $data=array(
             'AppVersion' => $parameter['AppVersion'], 
             'UserKey' => $parameter['UserKey'],
-            'curShot' => date ('Y-m-d H:i:s', $parameter['curShot']), 
+            'curShot' => date('Y-m-d H:i:s',  strtotime($parameter['curShot'])), 
             'keyStrokeCount' => $parameter['keyStrokeCount'],
             'mouseClickCount' => $parameter['mouseClickCount'], 
             'lastCaptureImage' => $parameter['lastCaptureImage']

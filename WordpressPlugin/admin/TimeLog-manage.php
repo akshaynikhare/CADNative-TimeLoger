@@ -113,7 +113,12 @@ class Customers_List extends WP_List_Table {
 			case 'mouseClickCount':
 				return $item[ $column_name ];
 			case 'lastCaptureImage':
-				return "<div>  <img style=\"width: 100%;\" src=\"data:image/png;base64, ".$item[ $column_name ]."\"  /></div>";
+				return (
+					 "<a href=\"#TB_inline?&width=800&&height=460&inlineId=pop-img-row".$item['ID']."\" class=\"thickbox\">"
+					."<div id=\"pop-img-row".$item['ID']."\" >"
+					."<img class=\"img-pop-java\" style=\"width: 100%;\" src=\"data:image/png;base64, ".$item[ $column_name ]."\"/>"
+					."</div></a>"
+				);
 			default:
 				return print_r( $item, true ); //Show the whole array for troubleshooting purposes
 		}
@@ -241,7 +246,8 @@ class Customers_List extends WP_List_Table {
 
 		                // esc_url_raw() is used to prevent converting ampersand in url to "#038;"
 		                // add_query_arg() return the current url
-		                wp_redirect( esc_url_raw(add_query_arg()) );
+						//wp_redirect( esc_url_raw(add_query_arg()) );
+						echo '<div class="notice notice-success is-dismissible"><p>Bulk Deleted..</p></div>';
 				exit;
 			}
 
@@ -261,8 +267,9 @@ class Customers_List extends WP_List_Table {
 			}
 
 			// esc_url_raw() is used to prevent converting ampersand in url to "#038;"
-		        // add_query_arg() return the current url
-		        wp_redirect( esc_url_raw(add_query_arg()) );
+				// add_query_arg() return the current url
+				//wp_redirect( add_query_arg([]) );
+				echo '<div class="notice notice-success is-dismissible"><p>Bulk Deleted..</p></div>';
 			exit;
 		}
 	}
@@ -311,12 +318,17 @@ class CadNativeTest47_manager {
 	 * Plugin settings page
 	 */
 	public function plugin_settings_page() {
-		?>
-		<div class="wrap">
-			<h2>CadNativeTest47 TimeLog </h2>
 
+		
+		?>
+		
+
+		
+		<div class="wrap">
+		<?php add_thickbox(); ?>
+			<h2>CadNativeTest47 TimeLog </h2>
 			<div id="poststuff">
-				<div id="post-body" class="metabox-holder columns-2">
+				<div id="post-body" class="metabox-holder ">
 					<div id="post-body-content">
 						<div class="meta-box-sortables ui-sortable">
 							<form method="post">

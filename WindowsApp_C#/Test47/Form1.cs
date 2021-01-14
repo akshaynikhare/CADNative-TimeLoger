@@ -135,6 +135,7 @@ namespace Test47
                 NextShot = curShot.AddMinutes(random.Next(1, 2));
                 nextCaptureTime.Text = NextShot.ToString();
                 lastCapture.Image = CaptureMyScreen();
+                _ = uploadLstShotAsync();
             }
         }
 

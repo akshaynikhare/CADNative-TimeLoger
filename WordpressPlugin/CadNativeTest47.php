@@ -25,7 +25,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-
+define( 'CadNativeTest47_DIR', esc_url( plugins_url( '', __FILE__ ) ));
 
 
 
